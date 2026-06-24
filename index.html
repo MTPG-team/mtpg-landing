@@ -493,10 +493,11 @@ function selectSubtype(val) {
 async function submitStep1() {
   const inputVal = document.getElementById("f-address").value.trim();
   const err = document.getElementById("err1");
-  if (!inputVal) { err.textContent="Please enter your address."; err.style.display="block"; return; }
+  // Accept either a Places-selected address OR manually typed input
+  const resolvedAddress = formData.address || inputVal;
+  if (!resolvedAddress) { err.textContent="Please enter your address."; err.style.display="block"; return; }
   err.style.display="none";
-  // Use Places-parsed address if available, otherwise use raw input
-  if (!formData.address) formData.address = inputVal;
+  formData.address = resolvedAddress;
   renderStep(2);
 }
  
