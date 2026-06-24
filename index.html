@@ -487,12 +487,12 @@ function selectSubtype(val) {
 }
  
 async function submitStep1() {
-  const address = document.getElementById("f-address").value.trim();
+  const inputVal = document.getElementById("f-address").value.trim();
   const err = document.getElementById("err1");
-  if (!address) { err.textContent="Please enter your address."; err.style.display="block"; return; }
+  if (!inputVal) { err.textContent="Please enter your address."; err.style.display="block"; return; }
   err.style.display="none";
-  formData.address = address;
-  await fireWebhook({step:1, address, city: formData.city||'', postalCode: formData.postalCode||'', market: formData.market||''});
+  // Use Places-parsed address if available, otherwise use raw input
+  if (!formData.address) formData.address = inputVal;
   renderStep(2);
 }
  
@@ -507,7 +507,23 @@ async function submitStep2() {
   formData.baths = document.getElementById("f-baths").value;
   formData.sqft = sqft;
   formData.condition = document.getElementById("f-condition").value;
-  await fireWebhook({step:2, ...formData});
+  await fireWebhook({
+    step: 2,
+    address: formData.address || '',
+    city: formData.city || '',
+    province: formData.province || '',
+    postalCode: formData.postalCode || '',
+    market: formData.market || '',
+    ownership: formData.ownership,
+    subtype: formData.subtype,
+    beds: formData.beds,
+    baths: formData.baths,
+    sqft: formData.sqft,
+    condition: formData.condition,
+    variant: VARIANT,
+    source: "MTPG Home Value",
+    timestamp: new Date().toISOString()
+  });
   renderStep(3);
 }
  
@@ -562,12 +578,29 @@ function attachAutocomplete() {
       if (c.types.includes("postal_code"))                 postalCode   = c.long_name;
     }
  
-    formData.address    = `${streetNumber} ${streetName}`.trim() || place.formatted_address;
+    const streetAddr = `${streetNumber} ${streetName}`.trim();
+    formData.address    = streetAddr || place.formatted_address;
     formData.city       = city;
     formData.province   = province;
     formData.postalCode = postalCode;
     formData.market     = city;
-    input.value         = formData.address;
+ 
+    // Force update the input value and trigger change
+    input.value = formData.address;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+    input.focus();
+    input.blur();
+ 
+    // Fire partial capture immediately when address is selected
+    fireWebhook({
+      step: 1,
+      address: formData.address,
+      city: formData.city,
+      province: formData.province,
+      postalCode: formData.postalCode,
+      market: formData.market
+    });
   });
 }
  
