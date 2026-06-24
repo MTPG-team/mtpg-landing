@@ -329,8 +329,12 @@ function renderStep(step) {
       <p class="modal-sub">We'll pull recent sold data from your area to anchor your evaluation.</p>
       <label class="m-label">Street address</label>
       <div style="position:relative">
-        <input class="m-input" id="f-address" placeholder="Start typing your address…" value="${formData.address||''}" autocomplete="off" style="padding-right:36px">
+        <input class="m-input" id="f-address" placeholder="Start typing your address…" autocomplete="off" style="padding-right:36px" value="">
         <svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:0.4;pointer-events:none" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#888"/></svg>
+      </div>
+      <div id="address-confirm" style="display:${formData.address?'flex':'none'};align-items:center;gap:8px;background:#F0FAF4;border:1.5px solid #4caf82;border-radius:8px;padding:10px 14px;margin-top:-8px;margin-bottom:14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4caf82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="address-confirm-text" style="font-size:14px;color:#2d7a4f;font-weight:500">${formData.address||''}</span>
       </div>
       <div id="err1" class="m-error" style="display:none"></div>
       <button class="m-btn" onclick="submitStep1()">Continue →</button>
@@ -585,14 +589,18 @@ function attachAutocomplete() {
     formData.postalCode = postalCode;
     formData.market     = city;
  
-    // Force update the input value and trigger change
-    input.value = formData.address;
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-    input.focus();
-    input.blur();
+    // Clear autocomplete input and show green confirmation box
+    input.value = "";
+    input.placeholder = "Change address…";
  
-    // Fire partial capture immediately when address is selected
+    const confirmBox  = document.getElementById("address-confirm");
+    const confirmText = document.getElementById("address-confirm-text");
+    if (confirmBox && confirmText) {
+      confirmText.textContent = formData.address + (city ? ", " + city : "") + (province ? ", " + province : "");
+      confirmBox.style.display = "flex";
+    }
+ 
+    // Fire partial capture immediately
     fireWebhook({
       step: 1,
       address: formData.address,
