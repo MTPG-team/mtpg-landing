@@ -473,7 +473,9 @@ function renderStep(step) {
 function selectOwnership(val) {
   formData.ownership = val;
   formData.subtype = "";
-  renderStep(2);
+  // Re-render current step to show subtypes without changing step
+  const currentStep = parseInt(document.getElementById("modalStepLabel").textContent.match(/\d+/)?.[0] || "1");
+  renderStep(currentStep);
 }
  
 function selectSubtype(val) {
