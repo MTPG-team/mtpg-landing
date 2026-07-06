@@ -1,9 +1,9 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/b",
-      "destination": "/b.html"
+      "destination": "/b.html",
+      "permanent": false
     }
   ]
 }
