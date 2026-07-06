@@ -440,6 +440,10 @@ function renderStep(step) {
 
   else if (step === 4) {
     setProgress(4);
+    // Google Ads conversion event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {'send_to': 'AW-334510126/ErdXCMG3xMUaEK7wwJ8B'});
+    }
     const name = formData.firstName ? formData.firstName.charAt(0).toUpperCase()+formData.firstName.slice(1) : null;
     body.innerHTML = `
       <div class="ty-check">
