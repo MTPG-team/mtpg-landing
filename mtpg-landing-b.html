@@ -1,0 +1,610 @@
+
+Mtpg landing b · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Home Worth? | MTPG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#0f0f0f;color:#fff;min-height:100vh;overflow-x:hidden}
+ 
+/* ── PAGE ── */
+.page{max-width:820px;margin:0 auto;padding:52px 24px 80px}
+ 
+/* ── ATTENTION BAR ── */
+.attn{text-align:center;margin-bottom:36px}
+.attn-text{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#EDE0C8}
+.attn-text span{color:#C8A96E}
+ 
+/* ── HEADLINE ── */
+.headline{text-align:center;margin-bottom:28px}
+.headline h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.08;letter-spacing:-0.02em;color:#fff}
+.headline h1 em{color:#C8A96E;font-style:normal}
+.headline .sub{font-size:clamp(15px,2vw,19px);color:#EDE0C8;margin-top:20px;line-height:1.7;font-weight:400;max-width:640px;margin-left:auto;margin-right:auto}
+ 
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,#2a2a2a,transparent);margin:36px 0}
+ 
+/* ── BULLETS ── */
+.bullets{display:flex;flex-direction:column;gap:20px;max-width:660px;margin:0 auto 40px}
+.bullet{display:flex;gap:16px;align-items:flex-start}
+.bullet-check{width:30px;height:30px;border-radius:50%;background:#C8A96E;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.bullet-check svg{width:14px;height:14px}
+.bullet-text{font-size:17px;line-height:1.6;color:#EDE0C8}
+.bullet-text strong{color:#fff;font-weight:700}
+ 
+/* ── WHY FREE ── */
+.why-free{background:#1a1a1a;border:1px solid #2a2a2a;border-left:3px solid #C8A96E;border-radius:8px;padding:16px 20px;max-width:660px;margin:0 auto 36px}
+.why-free p{font-size:14px;color:#EDE0C8;line-height:1.7}
+.why-free p strong{color:#C8A96E;font-weight:700}
+ 
+/* ── STATS ── */
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:660px;margin:0 auto 40px;border:1px solid #222;border-radius:10px;overflow:hidden}
+.stat{flex:1;min-width:140px;text-align:center;padding:22px 16px;border-right:1px solid #222;background:#141414}
+.stat:last-child{border-right:none}
+.stat-num{font-size:28px;font-weight:900;color:#C8A96E;line-height:1;letter-spacing:-0.02em}
+.stat-label{font-size:11px;color:#EDE0C8;margin-top:6px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
+ 
+/* ── AGENT ── */
+.agent-strip{display:flex;align-items:center;gap:20px;background:#141414;border:1px solid #222;border-radius:12px;padding:20px 24px;max-width:660px;margin:0 auto 40px}
+.agent-avatar{width:64px;height:64px;border-radius:50%;background:#1a1a1a;border:2px solid #C8A96E;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#C8A96E;flex-shrink:0;letter-spacing:0.05em}
+.agent-name{font-size:17px;font-weight:700;color:#fff;margin-bottom:3px}
+.agent-title{font-size:12px;color:#EDE0C8;margin-bottom:8px;line-height:1.5}
+.agent-markets{display:flex;flex-wrap:wrap;gap:5px}
+.market-tag{font-size:10px;padding:3px 9px;border-radius:10px;background:#1f1f1f;color:#888;border:1px solid #2a2a2a;letter-spacing:0.02em}
+ 
+/* ── CTA ── */
+.cta-wrap{text-align:center;margin-bottom:12px}
+.cta-btn{display:inline-flex;flex-direction:column;align-items:center;background:#E8272A;color:#fff;border:none;border-radius:10px;padding:20px 56px 16px;cursor:pointer;font-family:inherit;transition:transform 0.15s,background 0.15s;box-shadow:0 8px 32px rgba(232,39,42,0.35)}
+.cta-btn:hover{background:#c91f22;transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,39,42,0.45)}
+.cta-btn:active{transform:translateY(0)}
+.cta-main{font-size:22px;font-weight:900;letter-spacing:0.01em;display:flex;align-items:center;gap:10px;color:#fff}
+.cta-bonus{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);margin-top:5px;letter-spacing:0.04em}
+.cta-disclaimer{font-size:13px;color:#EDE0C8;text-align:center;margin-top:10px;line-height:1.6}
+ 
+/* ── TESTIMONIALS ── */
+.testi-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#EDE0C8;margin-bottom:16px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:660px;margin:0 auto}
+.testi{background:#141414;border:1px solid #222;border-radius:10px;padding:20px}
+.testi-stars{color:#C8A96E;font-size:14px;margin-bottom:10px;letter-spacing:3px}
+.testi-text{font-size:14px;color:#EDE0C8;line-height:1.65;margin-bottom:12px;font-style:italic}
+.testi-name{font-size:12px;color:#EDE0C8;font-weight:600}
+ 
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:440px;overflow:hidden;position:relative;max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.6);color:#111}
+.modal-header{background:#0f0f0f;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.modal-logo{font-size:15px;font-weight:800;letter-spacing:0.14em;color:#C8A96E}
+.modal-step-label{font-size:11px;color:#555;font-weight:500}
+.modal-close{background:transparent;border:1px solid #333;color:#666;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color 0.15s}
+.modal-close:hover{border-color:#666;color:#999}
+.modal-progress{height:3px;background:#1a1a1a}
+.modal-progress-fill{height:3px;background:#C8A96E;transition:width 0.4s ease}
+.modal-body{padding:28px 28px 32px;background:#fff;color:#111}
+.modal-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C8A96E;margin-bottom:8px}
+.modal-heading{font-size:21px;font-weight:800;color:#111;margin-bottom:6px;line-height:1.2}
+.modal-sub{font-size:13px;color:#777;margin-bottom:22px;line-height:1.6}
+.m-label{display:block;font-size:10px;font-weight:700;color:#555;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+.m-input{width:100%;padding:11px 13px;border-radius:7px;border:1.5px solid #E8E8E4;font-size:15px;color:#111;background:#FAFAF8;margin-bottom:14px;font-family:inherit;outline:none;appearance:none;-webkit-appearance:none;transition:border-color 0.15s}
+.m-input:focus{border-color:#C8A96E}
+.m-row{display:flex;gap:10px}
+.m-row>div{flex:1}
+.toggle-row{display:flex;gap:8px;margin-bottom:14px}
+.t-btn{flex:1;padding:11px;border:1.5px solid #E8E8E4;border-radius:7px;background:#FAFAF8;font-size:14px;font-weight:500;cursor:pointer;color:#999;font-family:inherit;transition:all 0.15s}
+.t-btn.on{border-color:#C8A96E;background:#FDF8F0;color:#9B7940;font-weight:700}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.pill{padding:7px 13px;border:1.5px solid #E8E8E4;border-radius:20px;background:#FAFAF8;font-size:12px;cursor:pointer;color:#999;font-family:inherit;transition:all 0.15s}
+.pill.on{border-color:#C8A96E;background:#FDF8F0;color:#9B7940;font-weight:600}
+.m-btn-row{display:flex;gap:8px;margin-top:6px}
+.m-btn{flex:1;padding:14px;background:#C8A96E;color:#111;border:none;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:background 0.15s;letter-spacing:0.01em}
+.m-btn:hover{background:#d4b87a}
+.m-back{padding:14px 14px;background:transparent;color:#BBB;border:1.5px solid #E8E8E4;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
+.m-error{color:#c0392b;font-size:12px;margin:-4px 0 10px;font-weight:500}
+.m-fine{font-size:11px;color:#BBB;text-align:center;margin-top:12px;line-height:1.6}
+ 
+/* ── THANK YOU ── */
+.ty-check{width:56px;height:56px;border-radius:50%;border:2px solid #C8A96E;background:#FDF8F0;display:flex;align-items:center;justify-content:center;margin:8px auto 16px}
+.ty-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C8A96E;margin-bottom:8px;text-align:center}
+.ty-heading{font-size:22px;font-weight:800;color:#111;margin-bottom:10px;line-height:1.2;text-align:center}
+.ty-sub{font-size:13px;color:#777;line-height:1.7;margin-bottom:0;text-align:center}
+.ty-divider{height:1px;background:#F0EFE9;margin:18px 0}
+.ty-agent{display:flex;align-items:center;gap:14px}
+.ty-avatar{width:50px;height:50px;border-radius:50%;background:#111;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#C8A96E;flex-shrink:0;border:2px solid #F0EFE9}
+.ty-name{font-size:15px;font-weight:700;color:#111;margin-bottom:2px}
+.ty-title{font-size:11px;color:#999;margin-bottom:3px}
+.ty-phone{font-size:13px;color:#C8A96E;font-weight:600;text-decoration:none}
+.ty-next{background:#FAFAF8;border-radius:10px;padding:14px 18px}
+.ty-next-title{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#BBB;margin-bottom:12px}
+.ty-step{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.ty-step:last-child{margin-bottom:0}
+.ty-num{width:20px;height:20px;border-radius:50%;background:#111;color:#C8A96E;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ty-step-text{font-size:12px;color:#666;line-height:1.55;margin:0}
+.ty-ig{display:block;background:linear-gradient(135deg,#0f0f0f 0%,#1e1608 100%);border-radius:10px;padding:14px 18px;text-decoration:none;text-align:center;margin-top:0;border:1px solid #2a2417}
+.ty-ig-text{font-size:12px;color:#777;margin-bottom:8px;line-height:1.5}
+.ty-ig-handle{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:1.5px solid #C8A96E;border-radius:20px;color:#C8A96E;font-size:12px;font-weight:600}
+ 
+/* Google Places autocomplete dropdown styling */
+.pac-container{border-radius:8px;border:1.5px solid #E8E8E4;box-shadow:0 8px 24px rgba(0,0,0,0.12);font-family:'Inter',system-ui,sans-serif;margin-top:4px;overflow:hidden}
+.pac-item{padding:10px 14px;font-size:14px;cursor:pointer;border-top:1px solid #F5F5F3;color:#111}
+.pac-item:hover{background:#FDF8F0}
+.pac-item-query{font-weight:600;color:#111}
+.pac-matched{color:#C8A96E;font-weight:700}
+.pac-icon{display:none}
+ 
+@media(max-width:600px){
+  .page{padding:36px 16px 60px}
+  .headline h1{font-size:28px}
+  .stats{border-radius:8px}
+  .stat{min-width:120px;padding:16px 10px}
+  .stat-num{font-size:22px}
+  .agent-strip{flex-direction:column;text-align:center}
+  .agent-markets{justify-content:center}
+  .cta-btn{padding:18px 32px 14px}
+  .cta-main{font-size:18px}
+  .bullet-text{font-size:15px}
+}
+</style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5JFOtoqwKa9iCE68oEWM_2oVSGDPJ4m0&libraries=places&v=weekly&callback=initAutocomplete" async defer></script>
+</head>
+<body>
+ 
+<div class="page">
+ 
+  <!-- Attention bar -->
+  <div class="attn">
+    <p class="attn-text"><span>Attention:</span> Homeowners Considering Selling</p>
+  </div>
+ 
+  <!-- Headline -->
+  <div class="headline">
+    <h1>Most Sellers Leave <em>$40,000–$80,000</em> on the Table — Here's How To Find Out If You're One of Them.</h1>
+    <p class="sub">Your home is probably your biggest asset. Most sellers price it based on gut feel, an online AI estimate, or what their neighbour sold for. That's how you leave tens of thousands on the table — and never know it.</p>
+  </div>
+ 
+  <div class="divider"></div>
+ 
+  <!-- Bullets -->
+  <div class="bullets">
+    <div class="bullet">
+      <div class="bullet-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7L6 11L12 3" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p class="bullet-text"><strong>Stop guessing your number</strong> — know exactly what your home is worth so nobody can lowball you.</p>
+    </div>
+    <div class="bullet">
+      <div class="bullet-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7L6 11L12 3" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p class="bullet-text"><strong>The pricing strategy that gets you more</strong> — not just the list price, but the strategy that creates competition and drives your final price up.</p>
+    </div>
+    <div class="bullet">
+      <div class="bullet-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7L6 11L12 3" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p class="bullet-text"><strong>Maximum exposure, maximum buyer pool</strong> — we market to the largest network of qualified buyers in the country, so your home doesn't sit.</p>
+    </div>
+  </div>
+ 
+  <!-- Why free -->
+  <div class="why-free">
+    <p><strong>Why is this free?</strong> Because 1 in 3 homeowners we evaluate ends up listing with us. We'd rather earn your trust first.</p>
+  </div>
+ 
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Of our listings sell vs. 50% industry avg.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">eXp</div>
+      <div class="stat-label">Nationwide buyer pool — largest in Canada</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">11</div>
+      <div class="stat-label">Agent team working for you</div>
+    </div>
+  </div>
+ 
+  <div class="divider"></div>
+ 
+  <!-- Agent strip -->
+  <div class="agent-strip">
+    <div class="agent-avatar">AM</div>
+    <div>
+      <div class="agent-name">Andrew Meyer</div>
+      <div class="agent-title">Managing Partner · MTPG · eXp Realty, Brokerage<br>Serving Guelph, KW, Cambridge, Centre Wellington &amp; Area</div>
+      <div class="agent-markets">
+        <span class="market-tag">Guelph</span>
+        <span class="market-tag">Guelph/Eramosa</span>
+        <span class="market-tag">Puslinch</span>
+        <span class="market-tag">Centre Wellington</span>
+        <span class="market-tag">Kitchener-Waterloo</span>
+        <span class="market-tag">Cambridge</span>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <button class="cta-btn" onclick="openModal()">
+      <div class="cta-main">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="#fff" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Get My Number
+      </div>
+      <div class="cta-bonus">Custom Pricing Strategy Included — Free</div>
+    </button>
+    <p class="cta-disclaimer">Takes 20 seconds. No pressure, no spam. We'd rather earn your trust first.</p>
+  </div>
+ 
+  <div class="divider"></div>
+ 
+  <!-- Testimonials -->
+  <p class="testi-label">What homeowners are saying</p>
+  <div class="testimonials">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"We had no idea what our home was actually worth. Andrew's team came back with a number higher than we expected — and delivered on it."</p>
+      <p class="testi-name">— M.T., Kortright West</p>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The strategy they laid out made complete sense. We felt informed and in control the entire time. Would not hesitate to recommend."</p>
+      <p class="testi-name">— J.K., Grange Road</p>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Professional, honest, and incredibly knowledgeable. They knew exactly what buyers in our area were looking for."</p>
+      <p class="testi-name">— D.L., Clairfields</p>
+    </div>
+  </div>
+ 
+</div>
+ 
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalCard">
+    <div class="modal-header">
+      <div class="modal-logo">MTPG</div>
+      <div class="modal-step-label" id="modalStepLabel">Step 1 of 3</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-progress">
+      <div class="modal-progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+ 
+<script>
+const ZAPIER_WEBHOOK = "https://hooks.zapier.com/hooks/catch/10517432/429olqw/";
+const VARIANT = "B";
+ 
+// Markets removed — captured automatically from Google Places address
+const SUBTYPES = {
+  Freehold: ["Detached","Semi-Detached","Townhouse / Link","Duplex","Triplex"],
+  Condo: ["Apartment","Townhouse / Stacked","Detached Condo","Duplex"]
+};
+ 
+let formData = {};
+ 
+async function fireWebhook(data) {
+  try {
+    await fetch(ZAPIER_WEBHOOK, {
+      method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({...data, variant:VARIANT, source:"MTPG Home Value", timestamp:new Date().toISOString()})
+    });
+  } catch(e){ console.warn("Webhook:",e); }
+}
+ 
+function openModal() {
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  renderStep(1);
+}
+ 
+function closeModal() {
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+ 
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById("modal")) closeModal();
+}
+ 
+function setProgress(step) {
+  const pct = (step - 1) / 3 * 100;
+  document.getElementById("progressFill").style.width = pct + "%";
+  const label = step <= 3 ? `Step ${step} of 3` : "";
+  document.getElementById("modalStepLabel").textContent = label;
+}
+ 
+function renderStep(step) {
+  const body = document.getElementById("modalBody");
+  setProgress(step);
+ 
+  if (step === 1) {
+    body.innerHTML = `
+      <p class="modal-eyebrow">Step 1 of 3</p>
+      <h2 class="modal-heading">Get your free evaluation started</h2>
+      <p class="modal-sub">Takes 2 minutes. An MTPG agent will follow up personally with your number.</p>
+      <div class="m-row">
+        <div>
+          <label class="m-label">First name *</label>
+          <input class="m-input" id="f-fname" placeholder="Sarah" value="${formData.firstName||''}">
+        </div>
+        <div>
+          <label class="m-label">Last name</label>
+          <input class="m-input" id="f-lname" placeholder="Chen" value="${formData.lastName||''}">
+        </div>
+      </div>
+      <label class="m-label">Email address *</label>
+      <input class="m-input" type="email" id="f-email" placeholder="sarah@email.com" value="${formData.email||''}">
+      <label class="m-label">Phone number *</label>
+      <input class="m-input" type="tel" id="f-phone" placeholder="519-555-0100" value="${formData.phone||''}">
+      <div id="err1" class="m-error" style="display:none"></div>
+      <button class="m-btn" onclick="submitStep1()">Get started →</button>
+      <p class="m-fine">No obligation. 100% free. Your info is never sold.</p>
+    `;
+  }
+  else if (step === 2) {
+    body.innerHTML = `
+      <p class="modal-eyebrow">Step 2 of 3</p>
+      <h2 class="modal-heading">Which home are we evaluating?</h2>
+      <p class="modal-sub">We will pull recent sold data from your area to anchor the estimate.</p>
+      <label class="m-label">Street address</label>
+      <div style="position:relative">
+        <input class="m-input" id="f-address" placeholder="Start typing your address..." autocomplete="off" style="padding-right:36px" value="">
+        <svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:0.4;pointer-events:none" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#888"/></svg>
+      </div>
+      <div id="address-confirm" style="display:${formData.address?'flex':'none'};align-items:center;gap:8px;background:#F0FAF4;border:1.5px solid #4caf82;border-radius:8px;padding:10px 14px;margin-top:-8px;margin-bottom:14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4caf82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="address-confirm-text" style="font-size:14px;color:#2d7a4f;font-weight:500">${formData.address||''}</span>
+      </div>
+      <div id="err2" class="m-error" style="display:none"></div>
+      <div class="m-btn-row">
+        <button class="m-back" onclick="renderStep(1)">← Back</button>
+        <button class="m-btn" onclick="submitStep2()">Continue →</button>
+      </div>
+    `;
+  }
+  else if (step === 3) {
+    body.innerHTML = `
+      <p class="modal-eyebrow">Last step — almost there</p>
+      <h2 class="modal-heading">Tell us about your home</h2>
+      <p class="modal-sub">More detail means a sharper, more accurate number.</p>
+      <label class="m-label">Ownership type</label>
+      <div class="toggle-row">
+        ${["Freehold","Condo"].map(o=>`<button class="t-btn ${formData.ownership===o?'on':''}" onclick="selectOwnership('${o}')">${o}</button>`).join('')}
+      </div>
+      <div id="subtypes-wrap">
+        ${formData.ownership?`
+          <label class="m-label">Property type</label>
+          <div class="pills">
+            ${SUBTYPES[formData.ownership].map(s=>`<button class="pill ${formData.subtype===s?'on':''}" onclick="selectSubtype('${s}')">${s}</button>`).join('')}
+          </div>
+        `:''}
+      </div>
+      <div class="m-row" style="margin-top:4px">
+        <div>
+          <label class="m-label">Bedrooms</label>
+          <select class="m-input" id="f-beds">
+            <option value="">Select</option>
+            ${["1","2","3","4","5","6+"].map(v=>`<option ${formData.beds===v?'selected':''}>${v}</option>`).join('')}
+          </select>
+        </div>
+        <div>
+          <label class="m-label">Bathrooms</label>
+          <select class="m-input" id="f-baths">
+            <option value="">Select</option>
+            ${["1","1.5","2","2.5","3","3.5","4+"].map(v=>`<option ${formData.baths===v?'selected':''}>${v}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="m-row">
+        <div>
+          <label class="m-label">Square footage</label>
+          <input class="m-input" id="f-sqft" placeholder="e.g. 1800" value="${formData.sqft||''}">
+        </div>
+        <div>
+          <label class="m-label">Condition</label>
+          <select class="m-input" id="f-condition">
+            <option value="">Select</option>
+            ${["Needs work","Average","Good","Excellent / updated"].map(v=>`<option ${formData.condition===v?'selected':''}>${v}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div id="err3" class="m-error" style="display:none"></div>
+      <div class="m-btn-row">
+        <button class="m-back" onclick="renderStep(2)">← Back</button>
+        <button class="m-btn" onclick="submitStep3()">Get My Number →</button>
+      </div>
+      <p class="m-fine">Your info is never sold or shared. No spam, ever.</p>
+    `;
+  }
+  else if (step === 4) {
+    setProgress(4);
+    const name = formData.firstName ? formData.firstName.charAt(0).toUpperCase()+formData.firstName.slice(1) : null;
+    body.innerHTML = `
+      <div class="ty-check">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 12L10 18L20 6" stroke="#C8A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="ty-eyebrow">We're on it</p>
+      <h2 class="ty-heading">${name ? name+', your' : 'Your'} evaluation is in good hands.</h2>
+      <p class="ty-sub">An MTPG agent will review your home details and reach out personally — usually within a few hours during business hours.</p>
+      <div class="ty-divider"></div>
+      <div class="ty-agent">
+        <div class="ty-avatar">AM</div>
+        <div>
+          <p class="ty-name">Andrew Meyer</p>
+          <p class="ty-title">Managing Partner · MTPG · eXp Realty, Brokerage</p>
+          <a href="tel:+15198314800" class="ty-phone">519-831-4800</a>
+        </div>
+      </div>
+      <div class="ty-divider"></div>
+      <div class="ty-next">
+        <p class="ty-next-title">What happens next</p>
+        <div class="ty-step">
+          <div class="ty-num">1</div>
+          <p class="ty-step-text">We review your home details and pull recent comparable sales in your area.</p>
+        </div>
+        <div class="ty-step">
+          <div class="ty-num">2</div>
+          <p class="ty-step-text">An agent reaches out personally with your evaluation and market context.</p>
+        </div>
+        <div class="ty-step">
+          <div class="ty-num">3</div>
+          <p class="ty-step-text">No pressure. Real information to help you make the right decision.</p>
+        </div>
+      </div>
+      <div class="ty-divider"></div>
+      <a href="https://instagram.com/list_with_andrew" target="_blank" class="ty-ig">
+        <p class="ty-ig-text">Follow along for market updates, neighbourhood insights, and real talk about local real estate.</p>
+        <div class="ty-ig-handle">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          @list_with_andrew
+        </div>
+      </a>
+    `;
+  }
+}
+ 
+function selectOwnership(val) {
+  formData.ownership = val;
+  formData.subtype = "";
+  renderStep(2);
+}
+ 
+function selectSubtype(val) {
+  formData.subtype = val;
+  document.querySelectorAll(".pill").forEach(p => p.classList.toggle("on", p.textContent.trim() === val));
+}
+ 
+async function submitStep1() {
+  const firstName = document.getElementById("f-fname").value.trim();
+  const email     = document.getElementById("f-email").value.trim();
+  const phone     = document.getElementById("f-phone").value.trim();
+  const err = document.getElementById("err1");
+  if (!firstName || !email || !phone) { err.textContent="Please fill in your name, email, and phone."; err.style.display="block"; return; }
+  err.style.display="none";
+  formData.firstName = firstName;
+  formData.lastName  = document.getElementById("f-lname").value.trim();
+  formData.email     = email;
+  formData.phone     = phone;
+  await fireWebhook({ step:1, firstName, lastName: formData.lastName, email, phone });
+  renderStep(2);
+}
+ 
+async function submitStep2() {
+  const inputVal = document.getElementById("f-address").value.trim();
+  const err = document.getElementById("err2");
+  const resolvedAddress = formData.address || inputVal;
+  if (!resolvedAddress) { err.textContent="Please enter your address."; err.style.display="block"; return; }
+  err.style.display="none";
+  formData.address = resolvedAddress;
+  await fireWebhook({
+    step: 2,
+    firstName: formData.firstName||'',
+    email: formData.email||'',
+    phone: formData.phone||'',
+    address: formData.address,
+    city: formData.city||'',
+    province: formData.province||'',
+    postalCode: formData.postalCode||'',
+    variant: VARIANT,
+    source: "MTPG Home Value",
+    timestamp: new Date().toISOString()
+  });
+  renderStep(3);
+}
+ 
+async function submitStep3() {
+  const sqft = document.getElementById("f-sqft").value.trim();
+  const err = document.getElementById("err3");
+  if (!formData.ownership || !formData.subtype || !sqft) {
+    err.textContent="Please select ownership type, property type, and enter square footage."; err.style.display="block"; return;
+  }
+  err.style.display="none";
+  formData.beds      = document.getElementById("f-beds").value;
+  formData.baths     = document.getElementById("f-baths").value;
+  formData.sqft      = sqft;
+  formData.condition = document.getElementById("f-condition").value;
+  await fireWebhook({step:3, ...formData, complete:true});
+  renderStep(4);
+}
+ 
+document.addEventListener("keydown", e => { if(e.key==="Escape") closeModal(); });
+ 
+// ── Google Places Autocomplete (classic) ─────────────────────────────────────
+let autocompleteInstance = null;
+ 
+function initAutocomplete() {
+  // Called by Google Maps on load — attach if step 1 is already visible
+  attachAutocomplete();
+}
+ 
+function attachAutocomplete() {
+  const input = document.getElementById("f-address");
+  if (!input || !window.google || !window.google.maps || !window.google.maps.places) return;
+  if (autocompleteInstance) return; // already attached
+ 
+  autocompleteInstance = new google.maps.places.Autocomplete(input, {
+    componentRestrictions: { country: "ca" },
+    fields: ["address_components", "formatted_address"],
+    types: ["address"],
+  });
+ 
+  // Prevent form submit on Enter
+  input.addEventListener("keydown", e => { if (e.key === "Enter") e.preventDefault(); });
+ 
+  autocompleteInstance.addListener("place_changed", () => {
+    const place = autocompleteInstance.getPlace();
+    if (!place || !place.address_components) return;
+ 
+    let streetNumber = "", streetName = "", city = "", province = "", postalCode = "";
+    for (const c of place.address_components) {
+      if (c.types.includes("street_number"))               streetNumber = c.long_name;
+      if (c.types.includes("route"))                       streetName   = c.long_name;
+      if (c.types.includes("locality"))                    city         = c.long_name;
+      if (c.types.includes("administrative_area_level_1")) province     = c.short_name;
+      if (c.types.includes("postal_code"))                 postalCode   = c.long_name;
+    }
+ 
+    const streetAddr = `${streetNumber} ${streetName}`.trim();
+    formData.address    = streetAddr || place.formatted_address;
+    formData.city       = city;
+    formData.province   = province;
+    formData.postalCode = postalCode;
+    formData.market     = city;
+ 
+    // Clear autocomplete input and show green confirmation box
+    input.value = "";
+    input.placeholder = "Change address…";
+ 
+    const confirmBox  = document.getElementById("address-confirm");
+    const confirmText = document.getElementById("address-confirm-text");
+    if (confirmBox && confirmText) {
+      confirmText.textContent = formData.address + (city ? ", " + city : "") + (province ? ", " + province : "");
+      confirmBox.style.display = "flex";
+    }
+ 
+    // Fire partial capture immediately
+    fireWebhook({
+      step: 1,
+      address: formData.address,
+      city: formData.city,
+      province: formData.province,
+      postalCode: formData.postalCode,
+      market: formData.market
+    });
+  });
+}
+ 
+// renderStep is already defined above — autocomplete attaches via postRender hook below
+</script>
+</body>
+</html>
+ 
